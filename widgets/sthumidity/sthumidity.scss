@@ -3,12 +3,29 @@
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// Widget-clock styles
+// Widget-sthumidity styles
 // ----------------------------------------------------------------------------
-.widget-clock {
+.widget-sthumidity {
 
-  .time {
-  	color: #aa00ff;
+  .title {
+    color: #fff
   }
+
+  .value {
+    color: #00aaff;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .unit {
+    color: #00aaff;
+    font-size: 250%;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
 
 }
