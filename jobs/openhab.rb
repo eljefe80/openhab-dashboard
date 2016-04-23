@@ -14,7 +14,8 @@ post '/openhab/dispatch' do
 end
 
 # Weather update
-SCHEDULER.every '5m', :first_in => 0 do |job|
+weather_refresh = ENV["WEATHER_REFRESH"] || '1m'
+SCHEDULER.every weather_refresh, :first_in => 0 do |job|
 app.refreshWeather()
  
 # Emit the event
