@@ -6,8 +6,8 @@ require 'json'
 # object also handles authorization with SmartThings.
 # 
 class OHApp
-  OPENHAB_SERVER = ENV['OH_DASH_OH_ADDRESS'] || "localhost"
-  OPENHAB_PORT = ENV['OH_DASH_OH_PORT'] || 8080
+  OPENHAB_SERVER = ENV['OPENHAB_ADDRESS'] || "localhost"
+  OPENHAB_PORT = ENV['OPENHAB_PORT'] || 8080
 
   attr_reader :temperature, :currentConditions, :humidity, :pressure, :precipitation, :windSpeed, :temperatureLow, 
     :temperatureHigh, :weatherIcon, :weatherCode, :tomorrowTemperatureLow, :tomorrowTemperatureHigh, :tomorrowWeatherIcon, :tomorrowPrecipitation,
