@@ -2,7 +2,7 @@ require 'dashing'
 
 configure do
   set :auth_token, 'openH4b'
-  set :default_dashboard, 'default'
+  set :default_dashboard, 'dashboard/default'
 
   helpers do
     def protected!
@@ -12,8 +12,9 @@ configure do
   end
 end
 
+set :assets_prefix, '/dashboard/assets'
 map Sinatra::Application.assets_prefix do
   run Sinatra::Application.sprockets
 end
 
-run Sinatra::Application
+run Rack::URLMap.new('/dashboard' => Sinatra::Application)
