@@ -2,7 +2,7 @@
 
 # pull a copy of dashing if it doesn't already exist
 if [[ ! -e /dashing/config.ru ]]; then
-  git clone 'https://github.com/LambdaDriver/openhab-dashboard.git' /dashing
+  git clone 'https://github.com/eljefe80/openhab-dashboard.git' /dashing
 fi
 
 # install gems

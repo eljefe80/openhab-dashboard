@@ -7,7 +7,7 @@ RUN apt update && \
 
 RUN gem install bundler dashing
 
-RUN git clone 'https://github.com/LambdaDriver/openhab-dashboard.git' /dashing
+RUN git clone 'https://github.com/eljefe80/openhab-dashboard.git' /dashing
 
 WORKDIR /dashing
 
