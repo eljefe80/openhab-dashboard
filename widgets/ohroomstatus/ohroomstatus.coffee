@@ -19,7 +19,7 @@ class Dashing.Ohroomstatus extends Dashing.Widget
     if (@get('state').toUpperCase() == 'OPEN' || @get('state') == 'ON') then 'icon-open' else 'icon-closed'
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'contact'

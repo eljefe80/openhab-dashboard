@@ -6,8 +6,8 @@ require 'json'
 # object also handles authorization with SmartThings.
 # 
 class OHApp
-  OPENHAB_SERVER = ENV['OPENHAB_ADDRESS'] || "localhost"
-  OPENHAB_PORT = ENV['OPENHAB_PORT'] || 8080
+  OPENHAB_SERVER = "localhost"
+  OPENHAB_PORT = 8080
 
   attr_reader :temperature, :currentConditions, :humidity, :pressure, :precipitation, :windSpeed, :temperatureLow, 
     :temperatureHigh, :weatherIcon, :weatherCode, :tomorrowTemperatureLow, :tomorrowTemperatureHigh, :tomorrowWeatherIcon, :tomorrowPrecipitation,
@@ -55,6 +55,23 @@ class OHApp
     response.body()
   end
 
+  def getLocations(users)
+    http = Net::HTTP.new(OPENHAB_SERVER, OPENHAB_PORT)
+    http.use_ssl = false
+    locations = Array.new
+    users.each do |user|
+      response = http.request(Net::HTTP::Get.new("/rest/items/location#{user}/state/?type=json"))
+      if not response.body() == "Uninitialized"
+       puts response.body()
+       data = response.body().delete(' ').split(",")
+       location = [data[0][0...-3],data[1][0...-3],user]
+       locations.push(location)
+      end
+    end
+    locations
+  end
+
+
   def refreshWeather()
     http = Net::HTTP.new(OPENHAB_SERVER, OPENHAB_PORT)
     http.use_ssl = false
@@ -69,7 +86,7 @@ class OHApp
       case member["name"]
         when "Weather_Temperature"
           @temperature=value.to_f.round 
-        when "Weather_Conditions"
+        when "Weather_Condition"
           @currentConditions = value
         when "Weather_Code"
           @weatherCode = value           

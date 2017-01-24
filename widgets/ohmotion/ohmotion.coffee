@@ -15,7 +15,7 @@ class Dashing.Ohmotion extends Dashing.Widget
     if @get('state') == 'active' then 'icon-active' else 'icon-inactive'
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'motion'

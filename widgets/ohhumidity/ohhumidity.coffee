@@ -8,7 +8,7 @@ class Dashing.Ohhumidity extends Dashing.Widget
     set: (key, value) -> @_value = value
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'humidity'

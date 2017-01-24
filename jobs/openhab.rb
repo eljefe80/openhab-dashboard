@@ -13,13 +13,19 @@ post '/openhab/dispatch' do
   app.sendCommand(params['deviceId'], params["command"],params)
 end
 
+
+SCHEDULER.every '1m', :first_in => '0s' do
+  users = ["Jeff","JeffWork","Jacqui"]
+  marker = app.getLocations(users) 
+  send_event('map', markers: marker)
+end
+
 # Weather update
-weather_refresh = ENV["WEATHER_REFRESH"] || '1m'
-SCHEDULER.every weather_refresh, :first_in => 0 do |job|
-app.refreshWeather()
+SCHEDULER.every '5m', :first_in => 0 do |job|
+  app.refreshWeather()
  
 # Emit the event
-if app.currentConditions.length >0 
+  if app.currentConditions.length >0 
 	send_event('weather', {
 	   now_temp: app.temperature,
 	   humidity: app.humidity,

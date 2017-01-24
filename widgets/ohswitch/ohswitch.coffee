@@ -29,7 +29,7 @@ class Dashing.Ohswitch extends Dashing.ClickableWidget
     return newState
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'switch'
@@ -39,7 +39,7 @@ class Dashing.Ohswitch extends Dashing.ClickableWidget
 
   postState: ->
     newState = @toggleState()
-    $.post '/openhab/dispatch',
+    $.post '/dashboard/openhab/dispatch',
       deviceId: @get('device'),
       command: newState     
 

@@ -11,55 +11,58 @@
     </li>
 
     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="GF_Living" data-view="Ohswitch" data-title="Living Room Lights" data-device="GF_Living"></div>
+      <div data-id="Upstairs_Lightswitch_Gdashboard" data-view="Ohswitch" data-title="Studio" data-device="Upstairs_Lightswitch_Gdashboard"></div>
     </li>
 
     <li data-row="1" data-col="6" data-sizex="2" data-sizey="1">
-      <div data-id="Light_FF_Landing_Spots" data-view="Ohdimmer" data-title="Upstairs Landing" data-device="Light_FF_Landing_Spots"></div>
+      <div data-id="Guest_Bedroom_FF_Light_Gdashboard" data-view="Ohdimmer" data-title="Guest Bedroom Light" data-device="Guest_Bedroom_FF_Light_Gdashboard"></div>
     </li>
 
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="Light_GF_Porch" data-view="Ohswitch" data-title="Front Porch Light" data-device="Light_GF_Porch"></div>
+      <div data-id="Hiro_Basement_Light" data-view="Ohswitch" data-title="Hiro's Light" data-device="Hiro_Basement_Light"></div>
     </li>
 
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="GF_Outdoors" data-view="Ohswitch" data-title="Outdoor Lights" data-device="GF_Outdoors"></div>
+      <div data-id="Front_Porch_Light_Gdashboard" data-view="Ohdimmer" data-title="Front Porch Light" data-device="Front_Porch_Light_Gdashboard"></div>
     </li>
 
     <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="GF_Front" data-view="Ohswitch" data-title="Front Room Lights" data-device="GF_Front"></div>
+      <div data-id="Dining_Room_FF_Gdashboard" data-view="Ohdimmer" data-title="Dining Room Light" data-device="Dining_Room_FF_Gdashboard"></div>
     </li>
 
     <li data-row="2" data-col="7" data-sizex="2" data-sizey="1">
-      <div data-id="Light_GF_Hallway" data-view="Ohdimmer" data-title="Hallway" data-device="Light_GF_Hallway"></div>
+      <div data-id="Master_Bedroom_Light_Gdashboard" data-view="Ohdimmer" data-title="Master Bedroom Light" data-device="Master_Bedroom_Light_Gdashboard"></div>
     </li>
 
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="Indoor_Lights_Security_Mode_Enabled" data-view="Ohswitch" data-title="Away Mode" data-device="Indoor_Lights_Security_Mode_Enabled"></div>
     </li>
 
-    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+<!--    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="Door_Sensor_UtilityRoom" data-view="Ohalert" data-title="Utility Room Door" data-device="Door_Sensor_UtilityRoom"></div>
     </li>
-  
-    <li data-row="3" data-col="3" data-sizex="2" data-sizey="2">
-      <div data-id="camera3" data-view="Cameras" data-title="" style="background-color:transparent; height: 300px !important"></div>
+-->  
+    <li data-row="3" data-col="2" data-sizex="2" data-sizey="2">
+      <div data-id="map" data-view="Map" data-title="Map" ></div>
     </li>
 
-    <li data-row="3" data-col="5" data-sizex="2" data-sizey="2">
-      <div data-id="camera1" data-view="Cameras" data-title="" style="background-color:transparent; height: 300px !important"></div>
+    <li data-row="3" data-col="4" data-sizex="2" data-sizey="2">
+      <div data-id="Basement_ipcam" data-view="Cameras" data-title="" data-device="Basement_ipcam_move" style="background-color:transparent; height: 300px !important"></div>
     </li>
 
+    <li data-row="3" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-id="link-default-dashboard" data-view="Text" data-icon="arrow-right" data-title="PTZ Cameras"  onclick="location.href='/dashboard/y-cameras'" style="background-color:#364B59"></div>
+    </li>
     <li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
-      <div data-id="link-default-dashboard" data-view="Text" data-icon="arrow-right" data-title="CCTV Cameras"  onclick="location.href='http://openhab:3030/playroom'" style="background-color:#364B59"></div>
+      <div data-id="link-default-dashboard" data-view="Text" data-icon="arrow-right" data-title="CCTV Cameras"  onclick="location.href='/dashboard/z-cameras'" style="background-color:#364B59"></div>
     </li>
-
+<!--
     <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="Garage_Door_Status" data-view="Ohalert" data-title="Garage Door" data-device="Garage_Door_Status"></div>
     </li>
-
-    <li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="CH_Dashboard" data-view="Ohheating" data-title="Heating" data-device="CH_Dashboard" data-suffix="&deg;C"></div>
+-->
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="CH_Dashboard" data-view="Ohheating" data-title="Heating" data-device="CH_Dashboard" data-suffix="&deg;F"></div>
     </li> 
 
     <li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
@@ -77,37 +80,48 @@
       <div data-id="Light_GF_Living_Table" data-view="Ohswitch" data-title="Living Room Table Lamp" data-device="Light_GF_Living_Table"></div>
     </li>
 
-    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
-      <div data-id="Light_GF_Living_Floor" data-view="Ohdimmer" data-title="Living Floor Standing" data-device="Light_GF_Living_Floor"></div>
+<!--    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="Basement_ipcam_move" data-view="Camerajoystick" data-title="Move Hiro's Camera" data-device="Basement_ipcam_move"></div>
     </li>
-
-    <li data-row="1" data-col="4" data-sizex="2" data-sizey="1">
-      <div data-id="Light_GF_Living_Spots" data-view="Ohdimmer" data-title="Living Room Spots" data-device="Light_GF_Living_Spots"></div>
+-->
+    <li data-row="1" data-col="4" data-sizex="2" data-sizey="2">
+      <div data-id="blink" data-view="Cameras" data-device="blink_move" data-title="" style="background-color:transparent; height: 300px !important"></div>
     </li>
 
     <li data-row="1" data-col="6" data-sizex="2" data-sizey="1">
       <div data-id="Light_GF_Living_Diffused" data-view="Ohdimmer" data-title="Living Room Ceiling" data-device="Light_GF_Living_Diffused"></div>
     </li>
-
+<!--
     <li data-row="2" data-col="4" data-sizex="2" data-sizey="1">
       <div data-id="Light_GF_Front_Spots" data-view="Ohdimmer" data-title="Front Room Spots" data-device="Light_GF_Front_Spots"></div>
     </li>
-
-    <li data-row="2" data-col="6" data-sizex="2" data-sizey="1">
+-->
+    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
       <div data-id="Light_GF_Front_Diffused" data-view="Ohdimmer" data-title="Front Room Ceiling" data-device="Light_GF_Front_Diffused"></div>
+    </li>
+    <li data-row="2" data-col="2" data-sizex="2" data-sizey="2">
+      <div data-id="Basement_ipcam" data-view="Cameras" data-device="Basement_ipcam_move" data-title="" style="background-color:transparent; height: 300px !important"></div>
+    </li>
+    <li data-row="3" data-col="4" data-sizex="2" data-sizey="2">
+      <div data-id="Frontroom_FF_ipcam" data-view="Cameras" data-device="Frontroom_FF_ipcam_move" data-title="" style="background-color:transparent; height: 300px !important"></div>
+    </li>
+    <li data-row="3" data-col="4" data-sizex="2" data-sizey="2">
+      <div data-id="FrontPorch_FF_ipcam" data-view="Cameras" data-device="None"  data-title="" style="background-color:transparent; height: 300px !important"></div>
     </li>
 
 
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="Light_GF_PlayRoom_Floor" data-view="Ohswitch" data-title="Playroom Floor Light" data-device="Light_GF_PlayRoom_Floor"></div>
+      <div data-id="Kitchen_FF_FoodBowl" data-view="Ohswitch" data-title="Lily's Food Bowl" data-device="Kitchen_FF_FoodBowl"></div>
     </li>
-
+<!--    <li data-row="2" data-col="2" data-sizex="2" data-sizey="2">
+      <div data-id="Hiro_Basement_Stream" data-view="stream" data-name="stream"></div>
+    </li> -->
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="Light_FF_MasterBed_DimMode" data-view="Ohswitch" data-title="Master Bedroom Table Lamps" data-device="Light_FF_MasterBed_DimMode"></div>
     </li>
 
     <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="Home_Occupied" data-view="Ohcontact" data-title="Home Occupied" data-device="Home_Occupied"></div>
+      <div data-id="someoneHome" data-view="Ohcontact" data-title="Home Occupied" data-device="someoneHome"></div>
     </li>
 
     <li data-row="4" data-col="2" data-sizex="2" data-sizey="1">

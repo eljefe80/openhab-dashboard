@@ -8,7 +8,7 @@ class Dashing.Ohmeter extends Dashing.Widget
   @accessor 'state', Dashing.AnimatedValue    
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'power'

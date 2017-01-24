@@ -15,7 +15,7 @@ class Dashing.Ohpresence extends Dashing.Widget
     if @get('state') == 'present' then 'icon-present' else 'icon-absent'
   
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'presence'

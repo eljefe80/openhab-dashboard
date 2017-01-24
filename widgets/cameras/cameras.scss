@@ -19,8 +19,60 @@ $moreinfo-color: rgba(255,255,255,0.3);
 
 	img {
 	  height: 100%;
-	  max-height: 450px;
+	  max-height: 300px;
 	  object-fit: cover;
 	}
 
+  .dir-icon {
+    position: absolute;
+    font-size: 25px;
+    width: 32px;
+    color: #888888;
+
+    &.up {
+      top: 10px;
+      left: calc(50% - 16px);
+      i {
+        padding-top: 8px;
+        padding-left: 8px;
+        padding-bottom: 8px;
+        padding-right: 8px;
+      }
+    }
+
+    &.down {
+      left: calc(50% - 16px);
+      bottom: 10px;
+
+      i {
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-left: 8px;
+        padding-bottom: 8px;
+      }
+    }
+    &.left {
+      top: calc(50% - 16px);
+      left: 8px;
+
+      i {
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-left: 8px;
+        padding-bottom: 8px;
+      }
+    }
+
+    &.right {
+      top: calc(50% - 16px);
+      right: 8px;
+
+      i {
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-left: 8px;
+        padding-bottom: 8px;
+      }
+    }
+  }
 }

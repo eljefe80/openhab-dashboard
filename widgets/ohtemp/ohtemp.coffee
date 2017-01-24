@@ -9,7 +9,7 @@ class Dashing.Ohtemp extends Dashing.Widget
       @_state = value
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'temperature'

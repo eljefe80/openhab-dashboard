@@ -15,7 +15,7 @@ class Dashing.Ohcontact extends Dashing.Widget
     if (@get('state') == 'open' || @get('state') == 'on') then 'icon-open' else 'icon-closed'
 
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'contact'

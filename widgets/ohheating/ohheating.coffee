@@ -34,7 +34,7 @@ class Dashing.Ohheating extends Dashing.Widget
       'heating-off'
       
   queryState: ->
-    $.get '/openhab/dispatch',
+    $.get '/dashboard/openhab/dispatch',
       widgetId: @get('id'),
       deviceId: @get('device'),
       deviceType: 'temperature'
