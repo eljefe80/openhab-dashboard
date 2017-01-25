@@ -8,6 +8,8 @@ require 'json'
 class OHApp
   OPENHAB_SERVER = "openhab.wdwconsulting.net"
   OPENHAB_PORT = 8080
+  OPENHAB_LOGIN = ENV['OPENHAB_LOGIN']
+  OPENHAB_PASS = ENV['OPENHAB_PASS']
 
   attr_reader :temperature, :currentConditions, :humidity, :pressure, :precipitation, :windSpeed, :temperatureLow, 
     :temperatureHigh, :weatherIcon, :weatherCode, :tomorrowTemperatureLow, :tomorrowTemperatureHigh, :tomorrowWeatherIcon, :tomorrowPrecipitation,
@@ -41,6 +43,9 @@ class OHApp
   def getState(itemID, data)
     http = Net::HTTP.new(OPENHAB_SERVER, OPENHAB_PORT)
     http.use_ssl = false
+    if OPENHAB_LOGIN
+      http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+    end
     response = http.request(Net::HTTP::Get.new("/rest/items/#{itemID}?type=json"))
     puts response.body()
     response.body()
@@ -50,6 +55,9 @@ class OHApp
     puts "[DEBUG] posting REST command: '/CMD?#{itemID}=#{newState}'"
     http = Net::HTTP.new(OPENHAB_SERVER, OPENHAB_PORT)
     http.use_ssl = false
+    if OPENHAB_LOGIN
+      http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+    end
     response = http.request(Net::HTTP::Get.new("/CMD?#{itemID}=#{newState}"))
     puts response.body()
     response.body()
@@ -60,6 +68,9 @@ class OHApp
     http.use_ssl = false
     locations = Array.new
     users.each do |user|
+      if OPENHAB_LOGIN
+        http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+      end
       response = http.request(Net::HTTP::Get.new("/rest/items/location#{user}/state/?type=json"))
       if not response.body() == "Uninitialized"
        puts response.body()
@@ -75,6 +86,9 @@ class OHApp
   def refreshWeather()
     http = Net::HTTP.new(OPENHAB_SERVER, OPENHAB_PORT)
     http.use_ssl = false
+    if OPENHAB_LOGIN
+      http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+    end
     response = http.request(Net::HTTP::Get.new("/rest/items/Weather?type=json"))
     #puts response.body()
     data = JSON.parse(response.body())
