@@ -6,7 +6,7 @@ require 'json'
 # object also handles authorization with SmartThings.
 # 
 class OHApp
-  OPENHAB_SERVER = "localhost"
+  OPENHAB_SERVER = "openhab.wdwconsulting.net"
   OPENHAB_PORT = 8080
 
   attr_reader :temperature, :currentConditions, :humidity, :pressure, :precipitation, :windSpeed, :temperatureLow, 

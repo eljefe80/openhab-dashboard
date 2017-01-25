@@ -15,7 +15,7 @@ RUN bundle install
 
 COPY run.sh /
 
-VOLUME ["/dashing"]
+VOLUME ["/dashing/assets/images/cameras/new"]
 
 ENV PORT 3030
 EXPOSE $PORT
