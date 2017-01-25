@@ -48,7 +48,7 @@ class OHApp
     request = Net::HTTP::Get.new(uri.request_uri)
 
     if OPENHAB_LOGIN
-      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PASS)
     end
     http.use_ssl = false
     response = http.request(request)
@@ -65,7 +65,7 @@ class OHApp
     request = Net::HTTP::Get.new(uri.request_uri)
 
     if OPENHAB_LOGIN
-      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PASS)
     end
     http.use_ssl = false
     response = http.request(request)
@@ -84,7 +84,8 @@ class OHApp
       request = Net::HTTP::Get.new(uri.request_uri)
 
       if OPENHAB_LOGIN
-        request.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+        request.basic_auth(OPENHAB_LOGIN, OPENHAB_PASS)
+        puts OPENHAB_LOGIN
       end
       http.use_ssl = false
       response = http.request(request)
@@ -109,7 +110,7 @@ class OHApp
     request = Net::HTTP::Get.new(uri.request_uri)
 
     if OPENHAB_LOGIN
-      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+      request.basic_auth(OPENHAB_LOGIN, OPENHAB_PASS)
     end
     http.use_ssl = false
     response = http.request(request)
