@@ -42,7 +42,7 @@ class OHApp
   # openHAB REST call
   def getState(itemID, data)
     path = "/rest/items/#{itemID}?type=json"
-    uri = URI('http://'+OPENHAB_SERVER+':'+OPENHAB_PORT+path)
+    uri = URI('http://' + OPENHAB_SERVER + ':' + OPENHAB_PORT.to_s + path)
     http = Net::HTTP::Head.new(uri)
     if OPENHAB_LOGIN
       http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
@@ -50,7 +50,7 @@ class OHApp
 
     response = Net::HTTP.start(uri.hostname, uri.port) do |http|
       http.use_ssl = false
-      http.request(req)
+      http.request(http)
     end
     puts response.body()
     response.body()
@@ -59,7 +59,7 @@ class OHApp
   def sendCommand(itemID, newState, data)
     puts "[DEBUG] posting REST command: '/CMD?#{itemID}=#{newState}'"
     path = "/CMD?#{itemID}=#{newState}"
-    uri = URI('http://'+OPENHAB_SERVER+':'+OPENHAB_PORT+path)
+    uri = URI('http://' + OPENHAB_SERVER + ':' + OPENHAB_PORT.to_s + path)
     http = Net::HTTP::Head.new(uri)
     if OPENHAB_LOGIN
       http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
@@ -67,26 +67,26 @@ class OHApp
 
     response = Net::HTTP.start(uri.hostname, uri.port) do |http|
       http.use_ssl = false
-      http.request(req)
+      http.request(http)
     end
     puts response.body()
     response.body()
   end
 
   def getLocations(users)
-    path = "/rest/items/location#{user}/state/?type=json"
-    uri = URI('http://'+OPENHAB_SERVER+':'+OPENHAB_PORT+path)
-    http = Net::HTTP::Head.new(uri)
-
-    if OPENHAB_LOGIN
-      http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
-    end
 
     locations = Array.new
     users.each do |user|
+      path = "/rest/items/location#{user}/state/?type=json"
+      uri = URI('http://' + OPENHAB_SERVER + ':' + OPENHAB_PORT.to_s + path)
+      http = Net::HTTP::Head.new(uri)
+
+      if OPENHAB_LOGIN
+        http.basic_auth(OPENHAB_LOGIN, OPENHAB_PORT)
+      end
       response = Net::HTTP.start(uri.hostname, uri.port) do |http|
         http.use_ssl = false
-        http.request(req)
+        http.request(http)
       end
       if not response.body() == "Uninitialized"
        puts response.body()
@@ -101,7 +101,7 @@ class OHApp
 
   def refreshWeather()
     path = "/rest/items/Weather?type=json"
-    uri = URI('http://'+OPENHAB_SERVER+':'+OPENHAB_PORT+path)
+    uri = URI('http://' + OPENHAB_SERVER + ':' + OPENHAB_PORT.to_s + path)
     http = Net::HTTP::Head.new(uri)
 
     if OPENHAB_LOGIN
@@ -109,7 +109,7 @@ class OHApp
     end
     response = Net::HTTP.start(uri.hostname, uri.port) do |http|
       http.use_ssl = false
-      http.request(req)
+      http.request(http)
     end
 
     #puts response.body()
