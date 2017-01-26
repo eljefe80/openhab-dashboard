@@ -1,5 +1,5 @@
 require 'net/http'
-
+require 'fileutils'
 
 class Cameras
  
@@ -146,7 +146,9 @@ class Cameras
 #	`rm #{old_file}` 
 	@@camera[cam]['oldFile'] = @@camera[cam]['newFile']
 #	new_file = @@camera[cam]['newFile']
-	`mv #{old_file} assets/images/cameras/new/`	
+        if File.exist?(old_file)
+           FileUtils.mv(old_file, 'assets/images/cameras/new/')
+        end
 	@@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
 	new_file = @@camera[cam]['newFile']
         begin
