@@ -148,6 +148,8 @@ class Cameras
 #	new_file = @@camera[cam]['newFile']
         if File.exist?(old_file)
            FileUtils.mv(old_file, 'assets/images/cameras/new/')
+        else
+           puts old_file+" doesn't exist"
         end
 	@@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
 	new_file = @@camera[cam]['newFile']
