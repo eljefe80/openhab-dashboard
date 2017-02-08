@@ -23,7 +23,7 @@ class Cameras
          'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
 
-     'FrontPorch_FF_ipcam' => { 'Host' => "10.200.1.159",  ## CHANGE
+     'FrontPorch_FF_ipcam' => { 'Host' => "merilille",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
@@ -31,7 +31,7 @@ class Cameras
         'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
-     'Frontporch2' => { 'Host' => "10.200.1.159",  ## CHANGE
+     'Frontporch2' => { 'Host' => "merilille",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
@@ -40,7 +40,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
 
-     'blink' => { 'Host' => "10.200.1.159",  ## CHANGE
+     'blink' => { 'Host' => "merilille",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
@@ -49,7 +49,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
 
-     'BackPorch_FF_ipcam' => { 'Host' => "10.200.1.159",  ## CHANGE
+     'BackPorch_FF_ipcam' => { 'Host' => "merilille",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
@@ -58,7 +58,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot4_old.jpeg",
         'type' => 'http' },
 
-     'Garage_ipcam' => { 'Host' => "10.200.1.159",  ## CHANGE
+     'Garage_ipcam' => { 'Host' => "merilille",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
