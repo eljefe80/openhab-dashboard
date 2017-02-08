@@ -7,7 +7,7 @@ require 'uri'
 # object also handles authorization with SmartThings.
 # 
 class OHApp
-  OPENHAB_SERVER = "openhab.wdwconsulting.net"
+  OPENHAB_SERVER = ENV['OPENHAB_HOST'] #"openhab.wdwconsulting.net"
   OPENHAB_PORT = 8080
   OPENHAB_LOGIN = ENV['OPENHAB_LOGIN']
   OPENHAB_PASS = ENV['OPENHAB_PASS']
