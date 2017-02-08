@@ -57,8 +57,8 @@ class OHApp
   end
 
   def sendCommand(itemID, newState, data)
-    puts "[DEBUG] posting REST command: '/CMD?#{itemID}=#{newState}'"
-    path = "/CMD?#{itemID}=#{newState}"
+    puts "[DEBUG] posting REST command: '/classicui/CMD?#{itemID}=#{newState}'"
+    path = "/classicui/CMD?#{itemID}=#{newState}"
     uri = URI('http://' + OPENHAB_SERVER + ':' + OPENHAB_PORT.to_s + path)
 
     http = Net::HTTP.new(uri.host, uri.port)
