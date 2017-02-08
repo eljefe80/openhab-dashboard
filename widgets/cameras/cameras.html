@@ -1,2 +1,7 @@
 <h1 class="title" data-bind="title"></h1>
-<img class="image_container" data-bind-src="image | prepend '/dashboard/assets'" data-bind-width="width"/>
+<img class="image_container" data-bind-onclick="onclick" data-bind-src="image | prepend '/dashboard/assets'" data-bind-width="width"/>
+<!--<h2 data-bind-class="icon-style"><i data-bind-class="icon | prepend 'fa fa-'"></i></h2>-->
+<p class="dir-icon left"><i class="fa fa-arrow-circle-o-left" id="level-left"></i></p>
+<p class="dir-icon right"><i class="fa fa-arrow-circle-o-right" id="level-right"></i></p>
+<p class="dir-icon down"><i class="fa fa-arrow-circle-o-down" id="level-down"></i></p>
+<p class="dir-icon up"><i class="fa fa-arrow-circle-o-up" id="level-up"></i></p>

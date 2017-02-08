@@ -29,30 +29,81 @@ class Dashing.Cameras extends Dashing.ClickableWidget
 
     sleep = (timeInMs, fn) -> setTimeout fn, timeInMs
 
-	ready: ->
+        ready: ->
         container = $(@node).parent()
         @maxWidth = (Dashing.widget_base_dimensions[0] * container.data("sizex")) + Dashing.widget_margins[0] * 2 * (container.data("sizex") - 1)
         @maxHeight = (Dashing.widget_base_dimensions[1] * container.data("sizey"))
         draw this
 
-	onData: (data) -> 
+    ready: ->
+        deviceId = @get('device')
+
+        debugger
+        if deviceId == "None"
+          $el = $(self.node)
+          for i in ['.up','.down','.left','.right']
+            $(@node).find(i).hide()
+
+    onData: (data) -> 
         return if !@maxWidth or !@maxHeight
         draw this
+
+
+    up: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "0"
+
+    down: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "1"
+
+    left: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "2"
+    right: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "3"
+
+    preset1: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "4"
+
+    preset2: ->
+      $.post '/dashboard/openhab/dispatch',
+        deviceId: @get('device'),
+        command: "5"
+      
 
     onClick: (event) ->
         # gridster = $(@node).parent('ul').data('gridster')
         # gridster.resize_widget(1, 2, 2)
+        if event.target.id == "level-down"
+          @down()
+        else if event.target.id == "level-up"
+          @up()
+        else if event.target.id == "level-right"
+          @right()
+        else if event.target.id == "level-left"
+          @left()
+        $.post '/dashboard/cameras/refresh',
+          camera: @get('id')
+        
 
- 	makeVideo = (url, type) ->
-        return $('
-            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline>
-                <source src="' + url + '" type="' + type + '">
-            </video>
-        ')
+
+#    makeVideo = (url, type) ->
+#      return $('
+#            <video preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline>
+#                <source src="' + url + '" type="' + type + '">
+#            </video>
+#      ')
 
     draw = (self) ->
         $el = $(self.node)
-
         needResize = false
 
         # Remove the old image
@@ -61,18 +112,20 @@ class Dashing.Cameras extends Dashing.ClickableWidget
 
         # Load the new image
         imageUrl = self.get("image")
-        if endsWith imageUrl, ".mp4"
-            $img = makeVideo imageUrl, 'video/mp4'
-        else if endsWith imageUrl, ".gifv"
-            imageUrl = imageUrl[0...-5] + ".mp4"
-            $img = makeVideo imageUrl, 'video/mp4'
-        else
-            # Need to resize images to preserve aspect ration
-            needResize = true
-            $img = $('<img src="' + self.get("image") + '"/>')
+        console.log imageUrl
+        debugger
+#        if endsWith imageUrl, ".mp4"
+#          $img = makeVideo imageUrl, 'video/mp4'
+#        else if endsWith imageUrl, ".gifv"
+#          $imageUrl = imageUrl[0...-5] + ".mp4"
+#          $img = makeVideo imageUrl, 'video/mp4'
+#        else
+        # Need to resize images to preserve aspect ratio
+        needResize = true
+        $img = $('<img src="' + self.get("image") + '"/>')
         $el.append $img
 
         if needResize
-            # Resize the image
-            getImageSize $img, (width, height) =>
-                resizeImage $img, self.maxWidth, self.maxHeight, self.get 'max'
+          # Resize the image
+          getImageSize $img, (width, height) =>
+            resizeImage $img, self.maxWidth, self.maxHeight, self.get 'max'
