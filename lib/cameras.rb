@@ -144,15 +144,12 @@ class Cameras
 #        `pwd`
 #        `ls -la #{old_file}`
 #	`rm #{old_file}` 
-	@@camera[cam]['oldFile'] = @@camera[cam]['newFile']
 #	new_file = @@camera[cam]['newFile']
         if File.exist?(old_file)
            FileUtils.mv(old_file, 'assets/images/cameras/new/')
         else
            puts old_file+" doesn't exist"
         end
-	@@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
-	new_file = @@camera[cam]['newFile']
         begin
          if (@@camera[cam]['type'] == 'http')
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port']) do |http|
@@ -163,6 +160,8 @@ class Cameras
 		response = http.request(req)
 #                puts cam
                 if response.code == "200"
+                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
+                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
@@ -177,6 +176,7 @@ class Cameras
           print "Error downloading ",@@camera[cam],bang
         end
 #		puts 'DEBUG '+cam+":"+new_file
+	new_file = @@camera[cam]['newFile']
 	new_file
   end
  
