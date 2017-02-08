@@ -24,7 +24,7 @@ class Dashing.Number extends Dashing.Widget
       $(@get('node')).addClass "status-#{data.status}"
 
   onClick: (node, event) ->
-    $.post '/smartthings/dispatch',
+    $.post '/dashboard/dispatch',
       widgetId: @get('id'),
       deviceId: 'Console Lamp',
       command: 'toggle'
