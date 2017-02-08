@@ -162,7 +162,7 @@ class Cameras
 		end
 		response = http.request(req)
 #                puts cam
-                if response.code == 200
+                if response.code == "200"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
