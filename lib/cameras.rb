@@ -5,7 +5,7 @@ class Cameras
  
 
   @@camera = {
-    'Basement_ipcam' => { 'Host' => "10.200.1.160",  ## CHANGE
+    'Basement_ipcam' => { 'Host' => "SC5CEB7A",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'admin', ## CHANGE
         'Password' => '', ## CHANGE
@@ -75,7 +75,7 @@ class Cameras
          'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
          'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
-     'Frontroom_FF_ipcam' => { 'Host' => "10.200.1.175",  ## CHANGE
+     'Frontroom_FF_ipcam' => { 'Host' => "SC5CEB79",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
