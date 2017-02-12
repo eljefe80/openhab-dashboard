@@ -159,7 +159,7 @@ class Cameras
 		end
 		response = http.request(req)
 #                puts cam
-                if response.code == "200"
+                if response.code == "200" and response.body.size > 0
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
