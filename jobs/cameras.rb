@@ -1,4 +1,5 @@
 require 'net/http'
+require 'pathname'
 
 cam = Cameras.new()
 CAMERADELAY = 1 # Needed for image sync. 
@@ -10,6 +11,13 @@ get '/cameras/refresh' do
   send_event(params['camera'], image: cam.make_web_friendly(new_file))
 end
 
+SCHEDULER.every 1h, first_in: 0 do
+ Dir.foreach("assets/cameras/images/").select { |x| File.file?("assets/cameras/images/#{x}") }
+ files.each do |file|
+   path
+   FileUtils.mv("assets/cameras/images/" + file, "assets/cameras/images/new" + file)
+ end
+end
  
  
 SCHEDULER.every FETCHNEWIMAGEEVERY, first_in: 0 do
