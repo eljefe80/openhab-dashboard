@@ -11,7 +11,7 @@ get '/cameras/refresh' do
   send_event(params['camera'], image: cam.make_web_friendly(new_file))
 end
 
-SCHEDULER.every 1h, first_in: 0 do
+SCHEDULER.every '1h', first_in: 0 do
  files = Dir.foreach("assets/images/cameras/").select { |x| File.file?("assets/images/cameras/#{x}") }
  files.each do |file|
    path
