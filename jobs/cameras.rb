@@ -12,7 +12,7 @@ get '/cameras/refresh' do
 end
 
 SCHEDULER.every 1h, first_in: 0 do
- Dir.foreach("assets/images/cameras/").select { |x| File.file?("assets/images/cameras/#{x}") }
+ files = Dir.foreach("assets/images/cameras/").select { |x| File.file?("assets/images/cameras/#{x}") }
  files.each do |file|
    path
    FileUtils.mv("assets/images/cameras/" + file, "assets/images/cameras/new" + file)
