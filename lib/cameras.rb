@@ -145,11 +145,11 @@ class Cameras
 #        `ls -la #{old_file}`
 #	`rm #{old_file}` 
 #	new_file = @@camera[cam]['newFile']
-#        if File.exist?(old_file)
-#           FileUtils.mv(old_file, 'assets/images/cameras/new/')
-#        else
-#           puts old_file+" doesn't exist"
-#        end
+        if File.exist?(old_file)
+           FileUtils.mv(old_file, 'assets/images/cameras/new/')
+        else
+           puts old_file+" doesn't exist"
+        end
         begin
          if (@@camera[cam]['type'] == 'http')
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port']) do |http|
