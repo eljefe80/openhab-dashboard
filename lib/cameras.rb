@@ -146,7 +146,7 @@ class Cameras
 #	`rm #{old_file}` 
 #	new_file = @@camera[cam]['newFile']
         if File.exist?(old_file)
-           FileUtils.mv(old_file, 'assets/images/cameras/new/')
+           FileUtils.rm(old_file)
         else
            puts old_file+" doesn't exist"
         end
@@ -161,7 +161,7 @@ class Cameras
 #                puts cam
                 if response.code == "200" and response.body.size > 0
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i.to_s+".jpg"
+                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
