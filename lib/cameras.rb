@@ -168,7 +168,7 @@ class Cameras
                        FileUtils.rm(old_file)
                     end
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i+".jpg"
+                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_s+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
