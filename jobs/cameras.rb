@@ -22,8 +22,9 @@ SCHEDULER.every FETCHNEWIMAGEEVERY, first_in: 0 do
 
       cam.get_keys().each do |key|
 #        Thread.new do
-          new_file = cam.fetch_image(key)
-	  if not File.exists?(cam.get_newFile_name(key)) # && @newFile2 && @newFile3)
+	  if cam.fetch_image(key) # && @newFile2 && @newFile3)
+            send_event(key, image: cam.make_web_friendly(cam.get_newFile_name(key)))
+          else
 	    warn "Failed to Get Camera Images "+key
 	  end
  
@@ -33,7 +34,6 @@ SCHEDULER.every FETCHNEWIMAGEEVERY, first_in: 0 do
 #	send_event('camera5', image: make_web_friendly(@oldFile5))
 #          sleep(CAMERADELAY)
 #          puts cam.make_web_friendly(new_file)
-          send_event(key, image: cam.make_web_friendly(new_file))
 #        end
       end
 #	send_event('camera3', image: make_web_friendly(new_file3))

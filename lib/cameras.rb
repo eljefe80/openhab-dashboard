@@ -140,17 +140,16 @@ class Cameras
   def fetch_image(cam)
 
 #	puts 'DEBUG '+cam
-	old_file = @@camera[cam]['oldFile']
 #        `pwd`
 #        `ls -la #{old_file}`
 #	`rm #{old_file}` 
 #	new_file = @@camera[cam]['newFile']
-        if File.exist?(old_file)
-           FileUtils.rm(old_file)
-        else
-           puts old_file+" doesn't exist"
-        end
-
+#        if File.exist?(old_file)
+#           FileUtils.rm(old_file)
+#        else
+#           puts old_file+" doesn't exist"
+#        end
+        new_image = false
         begin
          if (@@camera[cam]['type'] == 'http')
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port'], :use_ssl => (@@camera[cam]['Port'] == '443'), :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -161,14 +160,16 @@ class Cameras
 		response = http.request(req)
                 if response.code == "200" and response.body.size > 0
 #                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-                    if File.exist?(@@camera[cam]['newFile'])
-                       FileUtils.mv(@@camera[cam]['newFile'],old_file)
-                    end
+#                    if File.exist?(@@camera[cam]['newFile'])
+#                       FileUtils.mv(@@camera[cam]['newFile'],old_file)
+#                    end
+                    old_file = @@camera[cam]['oldFile']
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
                     @@camera[cam]['newFile'] = old_file
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
+                    new_image = true
                 else 
                    warn "Unable to get "+cam
 		end
@@ -178,8 +179,7 @@ class Cameras
           print "Error downloading ",@@camera[cam],bang
         end
 #		puts 'DEBUG '+cam+":"+new_file
-	new_file = @@camera[cam]['newFile']
-	new_file
+	new_image
   end
  
   def make_web_friendly(file)
