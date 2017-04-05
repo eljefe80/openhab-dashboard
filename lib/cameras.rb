@@ -158,13 +158,14 @@ class Cameras
 			req.basic_auth @@camera[cam]['Username'], @@camera[cam]['Password']
 		end
 		response = http.request(req)
-                puts cam
                 if response.code == "200" and response.body.size > 0
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
+                else 
+                   warn "Unable to get "+cam
 		end
            end
          else

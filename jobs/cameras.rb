@@ -24,7 +24,7 @@ SCHEDULER.every FETCHNEWIMAGEEVERY, first_in: 0 do
 #        Thread.new do
           new_file = cam.fetch_image(key)
 	  if not File.exists?(cam.get_newFile_name(key)) # && @newFile2 && @newFile3)
-	    warn "Failed to Get Camera Images"
+	    warn "Failed to Get Camera Images "+key
 	  end
  
 #	  send_event(key, image: cam.make_web_friendly(cam.get_oldFile_name(key)))
