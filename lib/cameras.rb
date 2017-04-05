@@ -14,11 +14,11 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot1_old.jpeg",
         'type' => 'http' },
 
-      'QSEE' => {         'Host' => "10.200.1.62",  ## CHANGE
-         'Port' => "85",  ## CHANGE
-         'Username' => 'admin', ## CHANGE
-         'Password' => 'admin', ## CHANGE
-         'URL' => "/cgi-bin/snapshot.cgi?loginuse=admin&loginpas=admin",
+      'QSEE' => {         'Host' => "10.200.1.225",  ## CHANGE
+         'Port' => "80",  ## CHANGE
+         'Username' => 'None', ## CHANGE
+         'Password' => '', ## CHANGE
+         'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=7&scale=100&maxfps=1&buffer=1000",
          'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
          'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
@@ -31,11 +31,11 @@ class Cameras
         'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
-     'Frontporch2' => { 'Host' => "merilille",  ## CHANGE
+     'Frontporch2' => { 'Host' => "10.200.1.225",  ## CHANGE
         'Port' => "80",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
-        'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=4&scale=100&maxfps=1&buffer=1000",
+        'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=8&scale=100&maxfps=1&buffer=1000",
         'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
