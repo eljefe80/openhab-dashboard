@@ -173,8 +173,8 @@ class Cameras
 			file.write(response.body)
                     end
                     new_image = @@camera[cam]['newFile']
-                else 
-                   warn "Unable to get "+cam
+#                else 
+#                   warn "Unable to get "+cam
 		end
            end
          end
@@ -182,7 +182,6 @@ class Cameras
           print "Error downloading ",@@camera[cam],bang
         end
 #		puts 'DEBUG '+cam+":"+new_file
-        puts "Got image "+ new_image
 	new_image
   end
  
