@@ -158,7 +158,7 @@ class Cameras
 			req.basic_auth @@camera[cam]['Username'], @@camera[cam]['Password']
 		end
 		response = http.request(req)
-#                puts cam
+                puts cam
                 if response.code == "200" and response.body.size > 0
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
