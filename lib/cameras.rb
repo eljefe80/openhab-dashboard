@@ -160,7 +160,7 @@ class Cameras
 		response = http.request(req)
                 if response.code == "200" and response.body.size > 0
 #                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-                    FileUtils.mv(newFile,oldFile)
+                    FileUtils.mv(@@camera[cam]['newFile'],oldFile)
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
