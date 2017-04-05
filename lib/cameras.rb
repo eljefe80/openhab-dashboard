@@ -40,11 +40,11 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
 
-     'blink' => { 'Host' => "merilille",  ## CHANGE
-        'Port' => "80",  ## CHANGE
+     'blink' => { 'Host' => "10.200.1.225",  ## CHANGE
+        'Port' => "443",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
-        'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=5&scale=100&maxfps=1&buffer=1000",
+        'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=10&scale=100&maxfps=1&buffer=1000",
         'newFile' => "assets/images/cameras/snapshot3_new.jpeg",
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
