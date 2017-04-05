@@ -149,7 +149,7 @@ class Cameras
 #        else
 #           puts old_file+" doesn't exist"
 #        end
-        new_image = false
+        new_image = ""
         begin
          if (@@camera[cam]['type'] == 'http')
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port'], :use_ssl => (@@camera[cam]['Port'] == '443'), :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -164,12 +164,15 @@ class Cameras
 #                       FileUtils.mv(@@camera[cam]['newFile'],old_file)
 #                    end
                     old_file = @@camera[cam]['oldFile']
+                    if File.exist?(old_file)
+                       FileUtils.rm(old_file)
+                    end
                     @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-                    @@camera[cam]['newFile'] = old_file
+                    @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+Time.now.to_i+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
-                    new_image = true
+                    new_image = @@camera[cam]['newFile']
                 else 
                    warn "Unable to get "+cam
 		end
