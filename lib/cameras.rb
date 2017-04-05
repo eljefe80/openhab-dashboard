@@ -15,7 +15,7 @@ class Cameras
         'type' => 'http' },
 
       'QSEE' => {         'Host' => "10.200.1.225",  ## CHANGE
-         'Port' => "80",  ## CHANGE
+         'Port' => "443",  ## CHANGE
          'Username' => 'None', ## CHANGE
          'Password' => '', ## CHANGE
          'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=7&scale=100&maxfps=1&buffer=1000",
@@ -32,7 +32,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/snapshot3_old.jpeg",
         'type' => 'http' },
      'Frontporch2' => { 'Host' => "10.200.1.225",  ## CHANGE
-        'Port' => "80",  ## CHANGE
+        'Port' => "443",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
         'URL' => "/zm/cgi-bin/nph-zms?mode=single&monitor=8&scale=100&maxfps=1&buffer=1000",
