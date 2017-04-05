@@ -153,25 +153,19 @@ class Cameras
 
         begin
          if (@@camera[cam]['type'] == 'http')
-           puts "1"
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port'], :use_ssl => (@@camera[cam]['Port'] == '443'), :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
-           puts "2"
 		req = Net::HTTP::Get.new(@@camera[cam]['URL'])
-           puts "3"
 		if @@camera[cam]['Username'] != "None" ## if username for any particular camera is set to 'None' then assume auth not required.
 			req.basic_auth @@camera[cam]['Username'], @@camera[cam]['Password']
 		end
-           puts "4"
 		response = http.request(req)
-           puts "5"
                 if response.code == "200" and response.body.size > 0
 #                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
-           puts "6"
-                    FileUtils.mv(@@camera[cam]['newFile'],old_file)
-           puts "7"
+                    if File.exist?(@@camera[cam]['newFile'])
+                       FileUtils.mv(@@camera[cam]['newFile'],old_file)
+                    end
                     @@camera[cam]['oldFile'] = "assets/images/cameras/"+cam+"_old.jpg"
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
-           puts "8"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
                     end
