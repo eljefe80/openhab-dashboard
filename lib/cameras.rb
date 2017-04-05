@@ -140,7 +140,7 @@ class Cameras
   def fetch_image(cam)
 
 #	puts 'DEBUG '+cam
-	old_file = @@camera[cam]['oldFile']
+	old_file = "assets/images/cameras/"+cam+"_old.jpg"
 #        `pwd`
 #        `ls -la #{old_file}`
 #	`rm #{old_file}` 
@@ -159,7 +159,8 @@ class Cameras
 		end
 		response = http.request(req)
                 if response.code == "200" and response.body.size > 0
-                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
+#                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
+                    FileUtils.mv(newFile,oldFile)
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
