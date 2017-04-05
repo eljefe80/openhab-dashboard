@@ -172,8 +172,8 @@ class Cameras
 		end
            end
          end
-#        rescue StandardError => bang
-#          print "Error downloading ",@@camera[cam],bang
+        rescue StandardError => bang
+          print "Error downloading ",@@camera[cam],bang
         end
 #		puts 'DEBUG '+cam+":"+new_file
 	new_file = @@camera[cam]['newFile']
