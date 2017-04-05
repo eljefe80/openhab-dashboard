@@ -152,7 +152,7 @@ class Cameras
         end
         begin
          if (@@camera[cam]['type'] == 'http')
-           Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port']) do |http|
+           Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port'], :use_ssl => (@@camera[cam]['Port'] == '443')) do |http|
 		req = Net::HTTP::Get.new(@@camera[cam]['URL'])
 		if @@camera[cam]['Username'] != "None" ## if username for any particular camera is set to 'None' then assume auth not required.
 			req.basic_auth @@camera[cam]['Username'], @@camera[cam]['Password']
