@@ -150,6 +150,7 @@ class Cameras
         else
            puts old_file+" doesn't exist"
         end
+
         begin
          if (@@camera[cam]['type'] == 'http')
            Net::HTTP.start(@@camera[cam]['Host'],@@camera[cam]['Port'], :use_ssl => (@@camera[cam]['Port'] == '443'), :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |http|
@@ -170,14 +171,10 @@ class Cameras
                    warn "Unable to get "+cam
 		end
            end
-         else
-            cmd = "avconv -y -i rtsp://"+@@camera[cam]['Host']+":" +@@camera[cam]['Port'] +@@camera[cam]['URL']+ " -loglevel panic -vframes 1 "+ @@camera[cam]['newFile'] 
-            puts cmd
-            `#{cmd}`
          end
 #        rescue StandardError => bang
 #          print "Error downloading ",@@camera[cam],bang
-#        end
+        end
 #		puts 'DEBUG '+cam+":"+new_file
 	new_file = @@camera[cam]['newFile']
 	new_file
