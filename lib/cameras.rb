@@ -161,6 +161,7 @@ class Cameras
                 if response.code == "200" and response.body.size > 0
 #                    @@camera[cam]['oldFile'] = @@camera[cam]['newFile']
                     FileUtils.mv(@@camera[cam]['newFile'],old_file)
+                    @@camera[cam]['oldFile'] = "assets/images/cameras/"+cam+"_old.jpg"
                     @@camera[cam]['newFile'] = "assets/images/cameras/"+cam+".jpg"
                     open(@@camera[cam]['newFile'], "wb") do |file|
 			file.write(response.body)
@@ -174,9 +175,9 @@ class Cameras
             puts cmd
             `#{cmd}`
          end
-        rescue StandardError => bang
-          print "Error downloading ",@@camera[cam],bang
-        end
+#        rescue StandardError => bang
+#          print "Error downloading ",@@camera[cam],bang
+#        end
 #		puts 'DEBUG '+cam+":"+new_file
 	new_file = @@camera[cam]['newFile']
 	new_file
