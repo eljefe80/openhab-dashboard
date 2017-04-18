@@ -14,7 +14,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/Basement_ipcam_b.jpeg",
         'type' => 'http' },
 
-      'QSEE' => {         'Host' => "10.200.1.225",  ## CHANGE
+      'QSEE' => {         'Host' => "olivia",  ## CHANGE
          'Port' => "443",  ## CHANGE
          'Username' => 'None', ## CHANGE
          'Password' => '', ## CHANGE
@@ -31,7 +31,7 @@ class Cameras
         'newFile' => "assets/images/cameras/FrontPorch_FF_ipcam_a.jpeg",
         'oldFile' => "assets/images/cameras/FrontPorch_FF_ipcam_b.jpg",
         'type' => 'http' },
-     'Frontporch2' => { 'Host' => "10.200.1.225",  ## CHANGE
+     'Frontporch2' => { 'Host' => "olivia",  ## CHANGE
         'Port' => "443",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
@@ -40,7 +40,7 @@ class Cameras
         'oldFile' => "assets/images/cameras/Frontporch2_b.jpeg",
         'type' => 'http' },
 
-     'blink' => { 'Host' => "10.200.1.225",  ## CHANGE
+     'blink' => { 'Host' => "olivia",  ## CHANGE
         'Port' => "443",  ## CHANGE
         'Username' => 'None', ## CHANGE
         'Password' => '', ## CHANGE
