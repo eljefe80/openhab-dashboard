@@ -15,7 +15,7 @@ end
 
 
 SCHEDULER.every '1m', :first_in => '0s' do
-  users = ["Jeff","JeffWork","Jacqui"]
+  users = ["Jeff","JeffWork"]
   marker = app.getLocations(users) 
   send_event('map', markers: marker)
 end
